@@ -2,40 +2,6 @@
 
 A lightweight, Netflix-style local web app for browsing and playing your personal library of **Movies**, **TV Shows**, **Standup**, and **Documentaries** — with posters/metadata from TMDB, “New” arrivals view, genre filters, archived badges, and one-click local playback (VLC or your default player).
 
-> **Attribution:** This project uses the TMDB API but is not endorsed or certified by TMDB.
-
----
-
-## Features
-
-- **Home (“New”)** page  
-  - Shows the **newest 16 Movies** and **newest 16 Standup** and **Documentary** items.  
-  - **New Shows** are *condensed*: one card per show, listing the **last 5 added episodes** under the poster (with “…” if more were added).
-  - Golden **NEW** badges appear here *and* on Movies/Shows pages for items flagged as new.
-  - Header shows total size for **New Movies** and **New Shows** sections.
-
-- **Movies / Standup / Documentary** pages  
-  - Responsive poster grid, search, sort (Title/Year/Genre), **Genre filter**, archived filter.  
-  - **Archived** items get a badge; the `0-ARCHIVED` folder itself is hidden from the grid.  
-  - Detail page shows poster, backdrop gradient, overview, genres, certification, runtime, user score, **original filename + file size**, and a **Play** button (white/black style).
-
-- **Shows** page  
-  - Grid of shows (search, sort, genre filter).  
-  - Show detail page locks poster size (no vertical stretching) and lists **seasons → episodes** with file sizes and per-episode **Play** buttons. NEW badge appears next to a newly added episode’s **Play** button.  
-  - Episode titles are auto-filled from TMDB when missing in filenames.
-
-- **Posters & metadata (TMDB)**  
-  - Robust matching with normalization, year tolerance for movies, and **yearless search for Standup/Documentaries** (incl. colon‐title variant common in standup specials).  
-  - Caches posters and metadata locally to speed up rebuilds.
-
-- **Local playback**  
-  - Uses `open -a VLC` when VLC is installed, otherwise `open` with your default player (macOS).  
-  - Movies play from their **detail page** (no auto-play on card click).  
-  - Shows play per episode from the show page.
-
-- **Teal/gold polish**  
-  - Branded “My Local Cinema” header (teal gradient), hover glow on cards, strong dividers, compact chip styles for metadata.
-
 ---
 
 ## Requirements
@@ -171,14 +137,6 @@ If a title still won’t match, check the console logs (disable `--quiet`) to se
 
 ---
 
-## Keyboard Shortcuts / Tips
-
-- Click a **card** → opens the detail page (doesn’t auto-play).  
-- Click **Play** on detail/episode rows to open in VLC (preferred) or default player.  
-- Use the **search box** and **genre/archived filters** to narrow the grid.
-
----
-
 ## Troubleshooting
 
 - **“NO TMDB CREDS; cannot search movie/TV”**  
@@ -199,41 +157,20 @@ If a title still won’t match, check the console logs (disable `--quiet`) to se
 
 ## Optional Companion Scripts (Renamers)
 
-If you also keep **renamers** in this repo:
-
 - `rename_movies.py` — normalizes movie folder/file names to `Title.Year.Quality.Source.Codec-Group` and creates folders if only a file exists.
+
 - `rename_tv.py` — normalizes shows to `Show.Name.SxxEyy.Episode.Title.Quality.Source.Codec-Group`; includes heuristics for sparse names (e.g., `Beavis and Butthead - 731 - Drinking Butt-ies.avi` → assumes S07E31, tags `HDTV`/`XviD` from `.avi`).
 
 > These are optional; the web app works with whatever naming you already use.
 
 ---
 
-## Roadmap Ideas
-
-- Config file (`config.json`) for roots, “new” window size, theme
-- “Play next” for shows (auto-advance)
-- Watch progress + Recently Watched
-- Keyboard navigation and quick filters
-- Streaming to browser as an alternative to external player
-
----
-
-## Contributing
-
-Issues and PRs welcome! Please include:
-- OS + Python version
-- Example filenames/folders
-- Relevant console logs (TMDB search lines)
-
----
-
 ## License
 
-MIT — or your preferred license. (Update this section before publishing.)
+MIT — or your preferred license. 
 
 ---
 
 ## Acknowledgements
 
 - Posters & metadata: **TMDB**  
-- You — for building and curating a legendary local library. 🍿
